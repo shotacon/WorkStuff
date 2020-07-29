@@ -1,0 +1,16 @@
+curl -XPOST 'es.zrhsh.com:9200/_search?pretty&q=customerId:8097089'
+
+curl -XPOST es.zrhsh.com:9200/_update
+{
+   "customerPhone" : "",
+   "params" : {
+      "customerId" : "9759074"
+   }
+}
+
+curl -XPOST 'es.zrhsh.com:9200/update?pretty' -H "Content-Type: application/json" -d '{ 
+    "customerPhone" : "",
+    "params" : {
+        "customerId" : "9759074"
+    }
+}'
