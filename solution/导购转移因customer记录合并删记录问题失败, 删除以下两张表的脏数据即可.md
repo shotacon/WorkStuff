@@ -1,0 +1,19 @@
+# 问题处理
+
+1. 导购转移因customer记录合并删记录问题失败, 删除以下两张表的脏数据即可.
+
+   ```sql
+   SELECT t.* FROM customer_follow_sales t 
+   LEFT JOIN sales s ON s.id = t.sales_id
+   LEFT JOIN customer c ON c.id = t.customer_id
+   WHERE s.phone = '15613258683'
+   AND c.id IS NULL;
+   
+   SELECT  t.* FROM customer_supplier_sales t 
+   LEFT JOIN sales s ON s.id = t.sales_id
+   LEFT JOIN customer c ON c.id = t.customer_id
+   WHERE s.phone = '15613258683' 
+   AND c.id IS NULL;
+   ```
+
+   
